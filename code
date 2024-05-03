@@ -1,0 +1,37 @@
+
+class Solution {
+    
+    public Node arrangeCV(Node head){
+        //write code here and return the head of changed linked list
+
+
+        if(head==null){
+            return head;
+        }
+
+        Node curr=head;
+
+        Node vow=new Node('\0');
+        Node vow1=vow;
+
+
+        Node cons=new Node('\0');
+        Node cons1=cons;
+
+
+        while(curr!=null){
+            if(curr.data=='a' || curr.data=='e' || curr.data=='i' || curr.data=='o' || curr.data=='u' ){
+                Node new_node=new Node(curr.data);
+                vow1.next=new_node;
+                vow1=new_node;
+            }else{
+                Node new_node=new Node(curr.data);
+                cons1.next=new_node;
+                cons1=new_node;
+            }
+            curr=curr.next;
+        }
+        vow1.next=cons.next;
+        return vow.next;
+    }
+}
